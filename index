@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hf — دليل الأفلام والمسلسلات</title>
+  
+<link rel="icon" href="hf.jpg" type="image/jpg">
+
+
+
+  <link rel="stylesheet" href="styel7.css" />
+  
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+  <div class="brand">
+    <img src="HFF.jpg" alt="hf" class="brand-logo" />
+    <div class="brand-text">
+      <span class="logo">دليل المشاهدة</span>
+      <span class="tag">Watch Guide</span>
+    </div>
+  </div>
+
+    <div class="searchbar">
+      <input id="searchInput" type="text" placeholder="بحث عن فيلم أو مسلسل..." />
+      <button id="searchBtn" class="btn primary">بحث</button>
+    </div>
+
+    <div class="actions">
+      <!-- Dropdown (hamburger) -->
+      <button id="menuBtn" class="icon-btn" aria-label="القائمة | Menu">☰</button>
+      <div id="dropdown" class="dropdown hidden">
+        <a href="apps.html" class="dropdown-item">تطبيقات | Apps</a>
+        <a href="about.html" class="dropdown-item">نبذة حولنا | About</a>
+        <a href="careers.html" class="dropdown-item">وظائف | Careers</a>
+        <a href="faq.html" class="dropdown-item">الأسئلة الشائعة | FAQ</a>
+        <a href="terms.html" class="dropdown-item">شروط الاستخدام | Terms</a>
+        <a href="privacy.html" class="dropdown-item">سياسة الخصوصية | Privacy</a>
+         <a href="user.html" class="dropdown-item">الاشتراك | user</a>
+      </div>
+
+      <!-- Watchlist -->
+      <button id="watchlistBtn" class="icon-btn" aria-label="قائمتي">★</button>
+
+      <!-- Settings -->
+      <button id="settingsBtn" class="icon-btn" aria-label="الإعدادات">👤</button>
+      <div id="settingsPanel" class="settings-panel hidden">
+        <h3>الإعدادات</h3>
+        <label class="row">
+          <span>اللغة</span>
+          <select id="langSelect">
+            <option value="ar-EG" selected>العربية</option>
+            <option value="en-US">English</option>
+            <a href="user.html" class="dropdown-item">الاشتراك | user</a>
+          </select>
+         
+        </label>
+        <label class="row">
+          <span>الدولة</span>
+          <select id="regionSelect">
+            <option value="EG" selected>مصر</option>
+            <option value="LY">ليبيا</option>
+            <option value="US">USA</option>
+            <option value="GB">UK</option>
+          </select>
+        </label>
+        
+        <button id="closeSettings" class="btn">إغلاق</button>
+      </div>
+       <!-- Settings -->
+<a href="user.html" class="icon btn" aria-label="الإعدادات">⚙</a>
+
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="icon-btn" aria-label="تبديل المظهر">🌓</button>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="all">جميعها</button>
+    <button class="tab" data-tab="movie">أفلام</button>
+    <button class="tab" data-tab="tv">مسلسلات</button>
+    <button class="tab" data-tab="kids">أطفال</button>
+    <button id="filtersBtn" class="btn outline small">فلاتر</button>
+  </nav>
+
+  <!-- Filters panel -->
+  <section id="filtersPanel" class="filters hidden">
+    <h3>الفلاتر</h3>
+    <div class="filters-grid">
+      <label>
+        النوع
+        <select id="genreSelect"></select>
+      </label>
+      <label>
+        السنة من
+        <input id="yearFrom" type="number" placeholder="2000" min="1900" max="2100" />
+      </label>
+      <label>
+        السنة إلى
+        <input id="yearTo" type="number" placeholder="2025" min="1900" max="2100" />
+      </label>
+      <label>
+        التقييم الأدنى
+        <input id="minRating" type="number" placeholder="6" min="0" max="10" step="0.1" />
+      </label>
+      <label>
+        الفرز
+        <select id="sortSelect">
+          <option value="popularity.desc">الأكثر رواجاً</option>
+          <option value="vote_average.desc">التقييم الأعلى</option>
+          <option value="release_date.desc">الأحدث</option>
+        </select>
+      </label>
+    </div>
+    <div class="filters-actions">
+      <button id="applyFilters" class="btn primary">تطبيق</button>
+      <button id="resetFilters" class="btn">إعادة تعيين</button>
+      <button id="closeFilters" class="btn">إغلاق</button>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="content">
+    <section class="hero">
+      <h2>العناوين الرائجة</h2>
+      <p>اكتشف الأفلام والمسلسلات الأكثر رواجاً في منطقتك.</p>
+    </section>
+
+    <section id="cards" class="grid"></section>
+
+    <section id="emptyState" class="empty hidden">
+      <p>لا يوجد محتوى مطابق.</p>
+      <button id="clearAll" class="btn">مسح الكل</button>
+    </section>
+  </main>
+
+  <!-- Watchlist drawer --><aside id="watchlistDrawer" class="drawer hidden">
+    <div class="drawer-header">
+      <h3>قائمتي</h3>
+      <button id="closeDrawer" class="icon-btn">✕</button>
+    </div>
+    <div id="watchlistItems" class="grid small"></div>
+  </aside>
+<!-- صفحة التفاصيل -->
+
+ <!-- Movie Details Modal -->
+<div id="movieModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <div class="modal-left">
+      <img id="modalPoster" class="modal-poster" src="" alt="Poster" />
+    </div>
+    <div class="modal-right">
+      <h2 id="modalTitle" class="movie-title"></h2>
+      <p id="modalTagline"></p>
+      <p class="meta-box"><strong>التقييم:</strong>⭐ <span id="modalRate"></span></p>
+      <p class="meta-box"><strong>الاصدار</strong>📅 <span id="modalDate"></span></p>
+      <p id="modalOverview"></p>
+
+      <h3>صور الفيلم</h3>
+      <div id="modalGallery" class="gallery"></div>
+
+      <h3>الممثلون</h3>
+      <div id="modalCast" class="cast"></div>
+
+      <h3>التريلر</h3>
+      <iframe id="modalTrailer" class="trailer-frame" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+ <footer class="footer">
+  <div class="footer-links">
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="piracy.html">الإبلاغ عن القرصنة</a>
+    <a href="terms.html">الشروط والأحكام</a>
+    <a href="contact.html">اتصل بنا</a>
+  </div>
+
+  <div class="social-icons">
+   <!-- رابط المكتبة في <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<!-- أيقونات الفوتر -->
+<div class="social-icons">
+  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+</div> </div>
+
+  <p>hf © 2025 — جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- رابط مكتبة Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+
+  <script src="script7.js"></script>
+</body>
+</html>
