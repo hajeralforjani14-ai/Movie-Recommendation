@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الأسئلة الشائعة | hf</title>
+  <link rel="icon" href="hf.jpg" type="image/jpg">
+
+  <style>
+    :root {
+      --bg-start: #1c0b2c;
+      --bg-end: #220d3a;
+      --card-grad: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.15));
+      --accent: #b57aff;
+      --accent-light: #e0c6ff;
+      --text: #f4f4f7;
+      --border: rgba(255,255,255,0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      color: var(--text);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      width: 100%;
+      background: var(--card-grad);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      background: linear-gradient(45deg, #caa6ff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(181,122,255,0.07), rgba(255,255,255,0.08));
+      transition: 0.3s;
+    }
+
+    .faq-item:hover {
+      background: linear-gradient(120deg, rgba(181,122,255,0.15), rgba(255,255,255,0.18));
+    }
+
+    .faq-question {
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--accent-light);
+    }
+
+    .faq-question span {
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.2rem;
+      color: #eee;
+      line-height: 1.8;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 1rem 1.2rem 1.5rem;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 14px;
+      background: linear-gradient(45deg, #4c257b, #e0c6ff);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 8px 25px rgba(181,122,255,0.4);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(181,122,255,0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="faq-container">
+    <h1>الأسئلة الشائعة</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        كيف أقدّم على وظيفة؟
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        يمكنك التقديم من خلال صفحة "فرص العمل" ورفع سيرتك الذاتية مباشرة عبر النموذج.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        هل التقديم مجاني؟
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        نعم، التقديم مجاني بالكامل ولا توجد أي رسوم.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        هل يمكن التقديم بدون خبرة؟
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        نعم، بعض الوظائف لا تتطلب خبرة مسبقة، ونرحب بالمبتدئين الموهوبين.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        متى يتم الرد على الطلب؟
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        عادة يتم التواصل خلال عدة أيام في حال تم قبول الطلب مبدئيًا.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+       
+       هل يمكن التقديم لأكثر من وظيفة؟
+     <span>+</span>
+      </div>
+      <div class="faq-answer">
+        نعم، يمكنك التقديم لأكثر من وظيفة حسب مهاراتك واهتماماتك.
+      </div>
+    </div>
+
+    <a href="index7.html" class="back-btn">⬅ الرجوع للصفحة الرئيسية</a>
+  </div>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach(q => {
+      q.addEventListener("click", () => {
+        const item = q.parentElement;
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>  

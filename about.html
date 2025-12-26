@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <link rel="icon" href="hf.jpg" type="image/jpg">
+<head>
+  <meta charset="UTF-8">
+  <title>نبذة حولنا | hf</title>
+  
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #151820;
+      --text: #e8eaf0;
+      --muted: #b7beca;
+      --accent: #66d9ef;
+      --border: #2a2f3a;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Naskh Arabic", Arial, sans-serif;
+    }
+
+    .legal-page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    /* الكرت */
+    .legal-content {
+      max-width: 780px;
+      width: 100%;
+      background: linear-gradient(180deg, #211724, #11131a);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      box-shadow: 0 15px 40px rgba(200, 135, 211, 0.45);
+      transition: 
+        max-width 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    /* تكبير الكرت عند المرور */
+    .legal-content:hover {
+      max-width: 860px;
+      transform: translateY(-6px);
+      box-shadow:
+        0 25px 60px rgba(64, 22, 89, 0.6),
+        0 0 30px rgba(80, 18, 96, 0.15);
+    }
+
+    /* العنوان */
+    .legal-content h1 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #d573df;
+      text-shadow: 0 0 12px rgba(102, 217, 239, 0.4);
+    }
+
+    /* النص */
+    .legal-content p {
+      line-height: 1.9;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .legal-content ul {
+      padding-inline-start: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .legal-content li {
+      margin-bottom: 0.6rem;
+      color: var(--muted);
+    }
+
+    /* زر الرجوع */
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #081018;
+      background: linear-gradient(135deg, #b870df,#3e0345, #123876);
+      box-shadow: 0 8px 25px rgba(94, 68, 106, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 35px rgba(90, 20, 93, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="legal-page">
+    <div class="legal-content">
+      <h1>من نحن</h1>
+
+      <p>
+        <strong>hf</strong> هو دليل ذكي يساعدك في اختيار أفضل الأفلام والمسلسلات حسب ذوقك،
+        مع دعم كامل للغة العربية والإنجليزية.
+      </p>
+
+      <p>
+        هدفنا هو تقديم تجربة أنيقة وسريعة، تجمع بين البساطة والقوة،
+        مع أدوات بحث ذكية وفلاتر دقيقة تسهّل عليك الوصول لما تحب.
+      </p>
+
+      <ul>
+        <li>🎬 توصيات ذكية حسب اهتماماتك.</li>
+        <li>📑 حفظ الأفلام والمسلسلات في قائمة خاصة.</li>
+        <li>🌐 دعم عربي وإنجليزي كامل.</li>
+        <li>📱 روابط مباشرة للمنصات الرسمية.</li>
+      </ul>
+
+      <p>
+        نعمل باستمرار على تطوير المنصة وتحسين الأداء لتقديم تجربة استخدام ممتعة وآمنة.
+      </p>
+
+      <a href="index7.html" class="btn">⬅ رجوع للصفحة الرئيسية</a>
+    </div>
+  </div>
+</body>
+</html>

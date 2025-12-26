@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<link rel="icon" href="hf.jpg" type="image/jpg">
+<head>
+  <meta charset="UTF-8">
+  <title>فرص العمل | hf</title>
+  <style>
+    :root {
+      --bg-start: #1c0b2c;   /* موف غامق */
+      --bg-end: #4a1f7a;     /* بنفسجي فاتح */
+      --card-gradient: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.15));
+      --text: #f0f0f5; 
+      --accent-gradient: linear-gradient(45deg, #130327, #d6aaff);
+      --accent-hover-gradient: linear-gradient(45deg, #140c1b, #e9cfff);
+      --border: rgba(255,255,255,0.2);
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg,rgb(24, 1, 32), rgb(42, 10, 55));
+      color: var(--text);
+      font-family: system-ui, "Segoe UI", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 700px;
+      background: #2d1937;
+      border: 1px solid #1c0b2c;
+      border-radius: 18px;
+      padding: 3rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+      backdrop-filter: blur(12px);
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 35px 80px rgba(0,0,0,0.8);
+      background: linear-gradient(145deg, rgba(141, 51, 169, 0.1), rgba(146, 32, 166, 0.2));
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 2rem;
+      text-align: center;
+      background: var(--accent-gradient);
+    
+    }
+
+    p { 
+      line-height: 1.8; 
+      text-align: center;
+    }
+
+    ul { 
+      margin: 1.5rem 0; 
+      padding-inline-start: 0; 
+      list-style: none;
+    }
+    li { 
+      margin-bottom: 0.7rem; 
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      background: linear-gradient(120deg, rgba(181,122,255,0.05), rgba(214,170,255,0.15));
+      border-left: 5px solid #b57aff;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    li:hover { 
+      background: linear-gradient(120deg, rgba(181,122,255,0.1), rgba(214,170,255,0.3));
+      transform: translateX(6px);
+    }
+
+    label { 
+      display: block; 
+      margin-top: 1.2rem; 
+      font-weight: bold; 
+    }
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      transition: border 0.3s ease, background 0.3s ease;
+    }
+    input:focus { 
+      border-color: #b57aff;
+      background: rgba(255,255,255,0.12);
+      outline: none;
+    }
+
+    .btn {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: var(--accent-gradient);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover { 
+      background: var(--accent-hover-gradient); 
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(214,170,255,0.5);
+    }
+
+    #responseMsg {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
+      text-align: center;
+      font-weight: bold;
+      display: none;
+      animation: fadeIn 0.6s ease forwards;
+      color: #d6aaff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>فرص العمل</h1>
+    <p>نحن في <strong>hf</strong> نبحث دائماً عن مواهب جديدة للانضمام إلى فريقنا.</p>
+    <p>الوظائف المتاحة حالياً:</p>
+    <ul>
+      <li>💻 مطور واجهات أمامية</li>
+      <li>🎨 مصمم تجربة المستخدم</li>
+      <li>📝 كاتب محتوى سينمائي</li>
+      <li>📢 مدير تسويق رقمي</li>
+    </ul><form id="jobForm">
+      <label>الاسم الكامل:</label>
+      <input type="text" required>
+
+      <label>البريد الإلكتروني:</label>
+      <input type="email" required>
+
+      <label>أرفق سيرتك الذاتية:</label>
+      <input type="file" accept=".pdf,.doc,.docx" required>
+
+      <button type="submit" class="btn">📤 إرسال السيرة الذاتية</button>
+    </form>
+
+    <div id="responseMsg">✅ تم إرسال السيرة الذاتية بنجاح!</div>
+
+    <a href="index7.html" class="btn">رجوع للصفحة الرئيسية</a>
+  </div>
+
+  <script>
+    const form = document.getElementById("jobForm");
+    const msg = document.getElementById("responseMsg");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      msg.style.display = "block";
+    });
+  </script>
+</body>
+</html>
